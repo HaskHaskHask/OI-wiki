@@ -54,13 +54,13 @@ DFS 为图论中的概念，详见 [DFS（图论）](../graph/dfs.md) 页面。�
     // C++ Version
     int m, arr[103];  // arr 用于记录方案
     
-    void dfs(int n, int i, int a) {
+    void dfs(int n, int i, int last) {
       if (n == 0) {
         for (int j = 1; j <= i - 1; ++j) printf("%d ", arr[j]);
         printf("\n");
       }
       if (i <= m) {
-        for (int j = a; j <= n; ++j) {
+        for (int j = last; j <= n; ++j) {
           arr[i] = j;
           dfs(n - j, i + 1, j);  // 请仔细思考该行含义。
         }
@@ -76,11 +76,11 @@ DFS 为图论中的概念，详见 [DFS（图论）](../graph/dfs.md) 页面。�
     # Python Version
     arr = [0] * 103  # arr 用于记录方案
     
-    def dfs(n, i, a):
+    def dfs(n, i, last):
         if n == 0:
             print(arr[1:i])
         if i <= m:
-            for j in range(a, n + 1):
+            for j in range(last, n + 1):
                 arr[i] = j
                 dfs(n - j, i + 1, j)  # 请仔细思考该行含义。
     
